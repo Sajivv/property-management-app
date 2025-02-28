@@ -1,15 +1,12 @@
-export class Property {
+export interface Property {
     id: number;
     address: string;
     rent: number;
-
-    constructor(id: number, address: string, rent: number) {
-        this.id = id;
-        this.address = address;
-        this.rent = rent;
-    }
-
-    calculateRent(months: number): number {
-        return this.rent * months;
-    }
+    status: 'vacant' | 'occupied';
+    propertyType: string;
+    squareFootage?: number;
+    numberOfBedrooms?: number;
+    numberOfBathrooms?: number;
+    currentTenantId?: number;
+    lastMaintenanceDate?: Date;
 }

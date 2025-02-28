@@ -1,16 +1,16 @@
-export class Tenant {
+export interface Tenant {
     id: number;
     name: string;
     contactInfo: string;
-
-    constructor(id: number, name: string, contactInfo: string) {
-        this.id = id;
-        this.name = name;
-        this.contactInfo = contactInfo;
-    }
-
-    updateDetails(name: string, contactInfo: string) {
-        this.name = name;
-        this.contactInfo = contactInfo;
-    }
+    email: string;
+    phoneNumber: string;
+    leaseStartDate?: Date;
+    leaseEndDate?: Date;
+    propertyId?: number;
+    rentAmount?: number;
+    paymentHistory?: Array<{
+        date: Date;
+        amount: number;
+        status: 'paid' | 'pending' | 'overdue';
+    }>;
 }

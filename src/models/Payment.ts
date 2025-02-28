@@ -1,15 +1,11 @@
-export class Payment {
+export interface Payment {
     id: number;
     amount: number;
     date: Date;
-
-    constructor(id: number, amount: number, date: Date) {
-        this.id = id;
-        this.amount = amount;
-        this.date = date;
-    }
-
-    validatePayment(): boolean {
-        return this.amount > 0 && this.date instanceof Date;
-    }
+    tenantId: number;
+    propertyId: number;
+    paymentType: 'rent' | 'deposit' | 'maintenance';
+    status: 'pending' | 'completed' | 'failed';
+    description?: string;
+    transactionId?: string;
 }
